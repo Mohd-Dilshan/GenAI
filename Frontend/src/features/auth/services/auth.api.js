@@ -17,6 +17,7 @@ export async function register ( { username, email, password }) {
     }
 }
 
+
 export async function login ({ email, password }) {
 
     try {
@@ -29,6 +30,7 @@ export async function login ({ email, password }) {
     }
 }
 
+
 export async function logout () {
 
     try {
@@ -38,6 +40,7 @@ export async function logout () {
         console.log(err)
     }
 }
+
 
 export async function getMe () {
     try {
