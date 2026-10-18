@@ -11,5 +11,4 @@ async function invokeGeminiAi () {
     })
     console.log(response.text)
 }
-
 module.exports = invokeGeminiAi
