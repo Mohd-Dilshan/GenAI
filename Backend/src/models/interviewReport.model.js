@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const technicalQuestionSchema = new mongoose.Schema({
     question: {
         type: String,
-        required: [true, "Question is required"]
+        required: [true, "Technical question is required"]
     },
     intention: {
         type: String,
@@ -21,7 +21,7 @@ const technicalQuestionSchema = new mongoose.Schema({
 const behavioralQuestionSchema = new mongoose.Schema ({
     question: {
         type: String,
-        required: [true, "Question is required"]
+        required: [true, "Technical question is required"]
     },
     intention: {
         type: String,
@@ -86,9 +86,11 @@ const interviewReportSchema = new mongoose.Schema({
     technicalQuestions: [technicalQuestionSchema],
     behavioralQuestions: [behavioralQuestionSchema],
     skillGaps: [skillGapSchema],
-    preparationPlan: [preparationPlanSchema]
-
-   
+    preparationPlan: [preparationPlanSchema],
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users",
+    }  
 }, {
     timestamps: true
 });
