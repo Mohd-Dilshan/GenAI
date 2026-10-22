@@ -7,6 +7,10 @@ const ai = new GoogleGenAI({
 const interviewReportSchema = {
     type: Type.OBJECT,
     properties: {
+        title: {
+            type: Type.STRING,
+            description: "The title of the job for which the interview report is generated"
+        },
         matchScore: {
             type: Type.INTEGER,
             description: "A score between 0 and 100"
@@ -79,7 +83,7 @@ async function generateInterviewReport({ resume, selfDescription, jobDescription
     `;
 
     const response = await ai.models.generateContent({
-        model: "gemini-3.8-flash",
+        model: "gemini-3-flash-preview",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
