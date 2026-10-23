@@ -334,6 +334,17 @@
   p { color: #a7a2aa; font-size: 0.63rem; line-height: 1.55; }
 }
 
+.resume-download-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+
+  .primary-button {
+    padding: 14px 26px;
+    font-size: 17px;
+  }
+}
+
 @media (max-width: 1080px) {
   .interview-page { padding: 18px; }
   .interview-layout { min-height: calc(100vh - 36px); grid-template-columns: 195px minmax(0, 1fr) 230px; }

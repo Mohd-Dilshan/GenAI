@@ -263,6 +263,8 @@
   strong { font-weight: 700; }
 }
 
+
+
 .card-footer {
   display: flex;
   min-height: 71px;
@@ -301,6 +303,40 @@
   &:hover { filter: brightness(1.1); box-shadow: 0 7px 21px rgba(222, 0, 71, 0.38); }
   &:active { transform: translateY(1px); }
   &:focus-visible { outline: 2px solid #ff8daf; outline-offset: 3px; }
+}
+
+.recent-reports{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 900px;
+
+    .reports-list{
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+
+        .report-item{
+            background-color: #14171b;
+           border: 1px solid #292c32;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            cursor: pointer;
+            flex-shrink: 0;
+
+            .match-score {
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: #f20a54;
+                align-items: flex-start;
+            }
+        }
+    }
 }
 
 .page-footer {
