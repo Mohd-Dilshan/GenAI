@@ -53,17 +53,20 @@ Configure backend environment:
 Bash
 cd Backend
 npm install
-Create a .env file in the Backend directory:
+Create a `.env` file in the Backend directory:
 
-Code snippet
-PORT=3000
+```env
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
-GEMINI_API_KEY=your_gemini_api_key
-Start the backend server:
+GOOGLE_GENAI_API_KEY=your_google_genai_api_key
+FRONTEND_URL=http://localhost:5173
+```
 
-Bash
-node server.js
+The backend uses the `PORT` provided by the host and falls back to `3000` locally. Start the backend server:
+
+```bash
+npm run dev
+```
 Configure frontend environment:
 
 Bash
@@ -71,6 +74,25 @@ cd ../Frontend
 npm install
 npm run dev
 The client application will start on http://localhost:5173 and communicate with the backend on http://localhost:3000.
+
+## Deployment
+
+### Render (backend)
+
+- Set the service root directory to `Backend`.
+- Use `npm install` as the build command and `npm start` as the start command.
+- Add `MONGO_URI`, `JWT_SECRET`, and `GOOGLE_GENAI_API_KEY` as environment variables.
+- Set `FRONTEND_URL` to your deployed Vercel site origin (for example, `https://your-app.vercel.app`, without a trailing slash).
+- Set `NODE_ENV` to `production`. Render provides `PORT` automatically.
+
+### Vercel (frontend)
+
+- Set the project root directory to `Frontend`.
+- Use `npm run build` as the build command and `dist` as the output directory.
+- Set `VITE_API_URL` to your deployed Render backend origin (for example, `https://your-api.onrender.com`, without a trailing slash).
+- Redeploy after setting or changing environment variables.
+
+The frontend sends credentialed requests for cookie-based authentication. The backend's production cookie settings require HTTPS.
 
 Author
 Mohd Dilshan
